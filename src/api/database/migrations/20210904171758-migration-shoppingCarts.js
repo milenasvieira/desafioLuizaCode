@@ -1,10 +1,9 @@
-const Sequelize = require('sequelize');
-const database = require('../database');
-const clients = require('./clients');
-const store = require('./stores');
+'use strict';
 
-const shoppingCart = database.define('shoppingCart', {
-    id: {
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('shoppingCart', {
+      id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
@@ -21,10 +20,10 @@ const shoppingCart = database.define('shoppingCart', {
         type: Sequelize.DATE,
         allowNull: false,
     }
-})
+    })
+  },
 
-clients.hasMany(shoppingCart)
-
-store.belongsTo(shoppingCart)
-
-module.exports = shoppingCart;
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('shoppingCart');
+  }
+};

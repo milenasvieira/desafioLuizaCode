@@ -1,8 +1,9 @@
-const Sequelize = require('sequelize');
-const database = require('../database');
+'use strict';
 
-const products = database.define('products', {
-    id: {
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('products', {
+      id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
@@ -16,6 +17,10 @@ const products = database.define('products', {
         type: Sequelize.DOUBLE(18,2),
         allowNull: false
     }
-})
- 
-module.exports = products;
+    })
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('products');
+  }
+};
