@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('cartProducts', {
+     await queryInterface.createTable('cartProducts', {
       value: {
         type: Sequelize.DOUBLE(18, 2),
         allowNull: false
@@ -15,7 +15,6 @@ module.exports = {
     products.belongsToMany(shoppingCart, {
       through: cartProducts
     })
-
   },
 
   down: async (queryInterface, Sequelize) => {
