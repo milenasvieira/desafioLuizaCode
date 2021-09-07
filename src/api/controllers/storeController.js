@@ -1,4 +1,4 @@
-const stores =  require('../../entities/stores');
+const stores =  require('../../models/Store');
 
 const storesList =  async (req, res) => {
     return console.log(res.send(stores))

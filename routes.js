@@ -1,10 +1,15 @@
-//const { Router } = require('express');
-const productsController = require('./src/api/controllers/productControllers/productController');
 
-//const routes = Router();
+const productsController = require('./src/api/controllers/productController');
+//const express = require('express')
+const routes = require('routes');
 const configRoutes = app => {
-    app.get('/productsList', productsController);
-    app.get('/productsList', (req, res) => res.send())
+    app.get('/productsList', productsController.index);
 }
 
-module.exports = configRoutes;
+// routes.get('/', (req, res) => {
+//     res.send('Hello World!')
+//   })
+
+module.exports = routes;
+
+//routes.get('/publicacao', PublicacaoController.index)
