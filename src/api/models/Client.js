@@ -6,10 +6,10 @@ class Client extends Model {
             name: DataTypes.STRING,
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE
-        })
+        }, { sequelize })
     }
     static associate(models) {
-        this.belongsToMany(models.ShoppingCart, { foreignKey: 'shoppingCartId', as: 'shoppingCart' });
+        this.hasMany(models.ShoppingCart, { foreignKey: 'clientId', as: 'shoppingCart' });
     }
 }
 

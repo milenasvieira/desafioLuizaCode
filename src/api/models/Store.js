@@ -5,10 +5,10 @@ class Store extends Model {
         super.init({
             name: DataTypes.STRING,
             city: DataTypes.STRING
-        })
+        }, { sequelize })
     }
     static associate(models) {
-        this.hasMany(models.ShoppingCart, { foreignKey: 'shoppingCartId', as: 'shoppingCarts' });
+        this.hasMany(models.ShoppingCart, { foreignKey: 'storeId', as: 'shoppingCarts' });
     }
 }
 

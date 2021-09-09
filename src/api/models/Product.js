@@ -5,10 +5,10 @@ class Product extends Model {
         super.init({
             name: DataTypes.STRING,
             value: DataTypes.DOUBLE
-        })
+        }, { sequelize })
     }
     static associate(models) {
-        this.belongsToMany(models.ShoppingCart, { foreignKey: 'shoppingCartId', through: 'cartProducts', as: 'shoppingCarts' });
+        this.belongsToMany(models.ShoppingCart, { foreignKey: 'productId', through: 'cartProducts', as: 'shoppingCarts' });
     }
 }
 

@@ -1,15 +1,17 @@
-
+const { application } = require('express');
+const productsList = require('./src/api/controllers/productController');
 const productsController = require('./src/api/controllers/productController');
-//const express = require('express')
-const routes = require('routes');
+const storeController = require('./src/api/controllers/storeController');
+
 const configRoutes = app => {
-    app.get('/productsList', productsController.index);
+
+    // app.get("/", (req, res) => {
+    //     res.json({ message: "Mensagem." });
+    //   });
+
+    app.get('/products/list', productsController.list )
+    //app.get('/stores/list', storeController.list)
+
 }
 
-// routes.get('/', (req, res) => {
-//     res.send('Hello World!')
-//   })
-
-module.exports = routes;
-
-//routes.get('/publicacao', PublicacaoController.index)
+module.exports = configRoutes;

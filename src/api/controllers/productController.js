@@ -1,10 +1,9 @@
-const sequelize = require('../../../database');
 const Product = require('../models/Product');
 
 module.exports = {
-    async index(req, res) {
-        const productsList = await Products.findAll();
-        return res.json(productsList)
+    async list(req, res) {
+        const productsList = await Product.findAll();
+        return res.send({productsList})
     }
 }
 

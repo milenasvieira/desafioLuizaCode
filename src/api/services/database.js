@@ -2,7 +2,9 @@
 // const sequelizeBD = new Sequelize('luiza_code', 'ludevs', 'ludevs2021', {dialect: 'mysql', host: 'localhost'});
  
 // module.exports = sequelizeBD;
+
 const Sequelize = require('sequelize');
+
 const sequelizeBD = new Sequelize({
     dialect: 'mysql',
     host: 'localhost',
@@ -11,7 +13,7 @@ const sequelizeBD = new Sequelize({
     password: 'ludevs2021',
     database: 'luiza_code',
     define: {
-      timestamps: true,
+      timestamps: false,
       underscored: true,
     },
 }

@@ -1,10 +1,14 @@
-const stores =  require('../../models/Store');
+// const Store = require("../models/Store");
 
-const storesList =  async (req, res) => {
-    return console.log(res.send(stores))
-}
-
-module.exports = storesList;
+// module.exports = {
+//     async list(req, res) {
+//         console.log('teste')
+//         console.log(Store.findAll)
+//         const storesList = await Store.findAll();
+//         console.log('depois do teste')
+//         return res.send({storesList})
+//     }
+// }
 
 // const conn = require("../services/mysql");
 
