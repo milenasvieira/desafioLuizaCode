@@ -1,16 +1,18 @@
-// (async () => {
-//   const database = require('./database');
-//   //const Product = require('./src/api/models/Product');
+//const express = require('express');
+const app = require('./src/services/express')
+const routes = require('./routes');
 
-//   try {
-//       const resultado = await database.sync();
-//       console.log(resultado);
-//   } catch (error) {
-//       console.log(error);
-//   }
-// })();
+require('./src/database');
 
-const app = require("./src/api/services/express");
-const configRoutes = require("./routes")
+//const app = express();
+//const port = 3000
 
-configRoutes(app)
+//app.use(express.json());
+
+app.use(routes);
+
+// app.listen(port, () => {
+//     console.log(`Servidor iniciado em http://localhost:${port}`)
+// })
+
+// module.exports = app;

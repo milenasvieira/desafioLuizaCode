@@ -1,14 +1,17 @@
 const { Model, DataTypes } = require('sequelize')
 
 class Store extends Model {
-    static init(sequelize){
+    static init(sequelize) {
         super.init({
             name: DataTypes.STRING,
             city: DataTypes.STRING
-        }, { sequelize })
+        }, {
+            sequelize,
+            timestamps: false,
+        })
     }
     static associate(models) {
-        this.hasMany(models.ShoppingCart, { foreignKey: 'storeId', as: 'shoppingCarts' });
+        this.hasMany(models.ShoppingCart, { foreignKey: 'id', as: 'shoppingCarts' });
     }
 }
 

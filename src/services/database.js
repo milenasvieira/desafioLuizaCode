@@ -6,7 +6,7 @@ module.exports = {
     password: 'ludevs2021',
     database: 'luiza_code',
     define: {
-      timestamps: true,
-      underscored: true,
+      timestamps: false,
+      underscored: false,
     },
   };
