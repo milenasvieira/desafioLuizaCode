@@ -1,8 +1,12 @@
-const { Model, DataTypes } = require('sequelize')
+const { Model, DataTypes } = require('sequelize');
+const Client = require('./Client');
+const Product = require('./Product');
 
 class ShoppingCart extends Model {
     static init(sequelize){
         super.init({
+            clientId: DataTypes.INTEGER,
+            //productId: DataTypes.INTEGER,
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE
         },{

@@ -2,12 +2,12 @@ const Client = require('../models/Client');
 
 module.exports = {
 
-    async store(req, res) {
+    async creat(req, res) {
         const { name } = req.body;
 
-        const clientsStore = await Client.create({ name });
+        const clients = await Client.create({ name });
 
-        return res.json(clientsStore);
+        return res.json(clients);
     },
 
     async list(req, res) {
@@ -15,4 +15,5 @@ module.exports = {
 
         return res.json(clients);
     },
+
 };

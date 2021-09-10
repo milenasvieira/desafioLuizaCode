@@ -8,15 +8,15 @@ const ShoppingCartController = require('./src/controllers/shoppingCartController
 
 const routes = express.Router();
 
-routes.get('/products/list', ProductController.list);
+routes.get('/products/list', ProductController.list); //funcionando
 
-routes.get('/stores/list', StoreController.list);
+routes.get('/stores/list', StoreController.list);   //funcionando
 
-routes.post('/clients/create', ClientController.store);
+routes.post('/clients/create', ClientController.creat); //funcionando
 
-routes.get('/clients/list', ClientController.list);
+routes.get('/clients/list', ClientController.list); //funcionando
 
-// routes.get('/shoppingcarts/create', ShoppingCartController.create);
+routes.get('/shoppingcarts/create', ShoppingCartController.creat);
 
 // routes.get('/shoppingcarts/delete', ShoppingCartController.delete);
 

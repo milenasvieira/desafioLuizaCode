@@ -5,9 +5,9 @@
 
 ## Endpoints
 
-- Listar lojas físicas;
-- Cadastrar clientes;
-- Listar produtos;
+- Listar lojas físicas;     x
+- Cadastrar clientes;       x
+- Listar produtos;          x
 - Adicionar um produto na lista de compra da cliente;
 - Remover um produto da lista de compra da cliente;
 - Finalizar compra;

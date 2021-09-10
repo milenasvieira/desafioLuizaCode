@@ -18,4 +18,4 @@ class Order extends Model {
     }
 }
 
-module.exports = ShoppingCart;
+module.exports = Order;

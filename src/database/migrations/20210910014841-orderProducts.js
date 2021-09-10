@@ -19,11 +19,11 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING(150),
-        allowNull: false
+        allowNull: false,
       },
       value: {
         type: Sequelize.DOUBLE(18,2),
-        allowNull: false
+        allowNull: false,
     }
     })
   },
