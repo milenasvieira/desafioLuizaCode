@@ -24,21 +24,15 @@ module.exports = {
           key: 'id'
         }
       },
-      storeId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {         // store hasMany Products n:n
-          model: 'stores',
-          key: 'id'
-        }
-      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
       }
     });
   },
