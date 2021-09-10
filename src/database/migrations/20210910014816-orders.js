@@ -1,28 +1,40 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('shoppingCarts', {
+    return queryInterface.createTable('orders', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      shoppingCartId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {         
+          model: 'shoppingcarts',
+          key: 'id'
+        }
+      },
       clientId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {         // Client hasMany Products n:n
+        references: {         
           model: 'clients',
           key: 'id'
         }
       },
-      productId: {
+      storeId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {         // products hasMany Clients n:n
-          model: 'products',
+        allowNull: true,
+        references: {
+          model: 'stores',
           key: 'id'
         }
+      },
+      pickedUp: {
+        type: Sequelize.BOOLEAN,
+        default: false,
       },
       createdAt: {
         allowNull: false,
@@ -36,15 +48,8 @@ module.exports = {
       }
     });
   },
+  
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('shoppingCarts');
+    return queryInterface.dropTable('orders');
   }
 };
-
-//     shoppingCart.belongsToMany(products, {
-//       through: cartProducts
-//     })
-
-//     products.belongsToMany(shoppingCart, {
-//       through: cartProducts
-//     })

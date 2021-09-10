@@ -11,7 +11,7 @@ class Store extends Model {
         })
     }
     static associate(models) {
-        this.hasMany(models.ShoppingCart, { foreignKey: 'id', as: 'shoppingCarts' });
+        this.hasMany(models.Order, { foreignKey: 'id', as: 'orders' });
     }
 }
 

@@ -6,6 +6,7 @@ class Product extends Model {
     static init(sequelize){
         super.init({
             name: DataTypes.STRING,
+            value: DataTypes.DOUBLE,
             value: DataTypes.DOUBLE
         } , {
             sequelize,
@@ -13,6 +14,7 @@ class Product extends Model {
     }
     static associate(models) {
         this.belongsToMany(models.ShoppingCart, { foreignKey: 'id', through: 'cartProducts', as: 'shoppingCarts' });
+        this.belongsToMany(models.Order, { foreignKey: 'id', through: 'orderProducts', as: 'orders' });
     }
 }
 
