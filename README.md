@@ -75,7 +75,7 @@ Siga as instruções para executar a API.
      or
    git clone SSH git@github.com:milenasvieira/desafioLuizaCode.git
    ```
-2. Excute o projeto por qualquer IDE
+2. Excute o projeto por qualquer IDE;
    ```sh
    Visual Studio Code
    ```
