@@ -13,7 +13,7 @@ class Product extends Model {
           })
     }
     static associate(models) {
-        this.belongsToMany(models.ShoppingCart, { foreignKey: 'id', through: 'cartProducts', as: 'shoppingCarts' });
+        this.belongsToMany(models.ShoppingCart, { foreignKey: 'id', otherKey: 'id', through: 'cartProducts', as: 'shoppingCarts' });
         this.belongsToMany(models.Order, { foreignKey: 'id', through: 'orderProducts', as: 'orders' });
     }
 }

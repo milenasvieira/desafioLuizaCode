@@ -6,7 +6,7 @@ class ShoppingCart extends Model {
     static init(sequelize){
         super.init({
             clientId: DataTypes.INTEGER,
-            //productId: DataTypes.INTEGER,
+            productId: DataTypes.INTEGER,
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE
         },{
@@ -15,7 +15,7 @@ class ShoppingCart extends Model {
     }
     static associate(models) {
         this.hasOne(models.Order, { foreignKey: 'id', as: 'orders' });
-        this.belongsToMany(models.Product, { foreignKey: 'id', through: 'cartProducts', as: 'products' });
+        this.belongsToMany(models.Product, { foreignKey: 'id', otherKey: 'id', through: 'cartProducts', as: 'products' });
         this.belongsTo(models.Client, { foreignKey: 'id', as: 'clients' });
     }
 }

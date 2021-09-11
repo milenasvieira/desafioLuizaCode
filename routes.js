@@ -16,7 +16,7 @@ routes.post('/clients/create', ClientController.creat); //funcionando
 
 routes.get('/clients/list', ClientController.list); //funcionando
 
-routes.get('/shoppingcarts/create', ShoppingCartController.creat);
+routes.post('/shoppingcarts/create', ShoppingCartController.creat);
 
 // routes.get('/shoppingcarts/delete', ShoppingCartController.delete);
 
