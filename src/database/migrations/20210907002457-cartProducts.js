@@ -3,12 +3,12 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('cartProducts', {
-      // id: {
-      //   allowNull: false,
-      //   autoIncrement: true,
-      //   primaryKey: true,
-      //   type: Sequelize.INTEGER
-      // },
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
       shoppingCartId: {
         type: Sequelize.INTEGER,
         references: { model: 'shoppingCarts', key: 'id' },
@@ -39,3 +39,4 @@ module.exports = {
   }
 };
 
+//npx sequelize-cli db:migrate:undo:all --to 20210907002457-cartProducts.js
