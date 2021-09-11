@@ -12,13 +12,13 @@ routes.get('/products/list', ProductController.list); //funcionando
 
 routes.get('/stores/list', StoreController.list);   //funcionando
 
-routes.post('/clients/create', ClientController.creat); //funcionando
+routes.post('/clients/create', ClientController.create); //funcionando
 
 routes.get('/clients/list', ClientController.list); //funcionando
 
-routes.post('/shoppingcarts/create', ShoppingCartController.creat);
+routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionando
 
-// routes.get('/shoppingcarts/delete', ShoppingCartController.delete);
+routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
 // routes.get('/shoppingcarts/checkout', ShoppingCartController.checkout);
 

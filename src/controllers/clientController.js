@@ -2,7 +2,7 @@ const Client = require('../models/Client');
 
 module.exports = {
 
-    async creat(req, res) {
+    async create(req, res) {
         const { name } = req.body;
 
         const clients = await Client.create({ name });
