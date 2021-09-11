@@ -16,13 +16,9 @@ module.exports = {
           key: 'id'
         }
       },
-      // productId: {
-      //   type: Sequelize.INTEGER,
-      //   allowNull: false,
-      //   references: {         // products hasMany Clients n:n
-      //     model: 'products',
-      //     key: 'id'
-      //   }
+      // isFinished: {
+      //   type: Sequelize.BOOLEAN,
+      //   default: false, //1 - Compra Realizada | 2 - Compra retirada
       // },
       createdAt: {
         allowNull: false,

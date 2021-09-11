@@ -8,14 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      shoppingCartId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {         
-          model: 'shoppingcarts',
-          key: 'id'
-        }
-      },
+      // shoppingCartId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {         
+      //     model: 'shoppingcarts',
+      //     key: 'id'
+      //   }
+      // },
       clientId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -33,8 +33,8 @@ module.exports = {
         }
       },
       pickedUp: {
-        type: Sequelize.BOOLEAN,
-        default: false,
+        type: Sequelize.INTEGER,
+        default: 1, //1 - Compra Realizada | 2 - Compra retirada
       },
       createdAt: {
         allowNull: false,

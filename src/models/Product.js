@@ -19,7 +19,12 @@ class Product extends Model {
             through: 'cartProducts',
             as: 'shoppingCarts'
         });
-        this.belongsToMany(models.Order, { foreignKey: 'id', through: 'orderProducts', as: 'orders' });
+        this.belongsToMany(models.Order, { 
+            foreignKey: 'productId',
+            otherKey: 'orderId',
+            through: 'cartProducts',
+            as: 'orders'
+        });
     }
 }
 
