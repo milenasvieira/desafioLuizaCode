@@ -16,14 +16,14 @@ module.exports = {
           key: 'id'
         }
       },
-      productId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {         // products hasMany Clients n:n
-          model: 'products',
-          key: 'id'
-        }
-      },
+      // productId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {         // products hasMany Clients n:n
+      //     model: 'products',
+      //     key: 'id'
+      //   }
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
