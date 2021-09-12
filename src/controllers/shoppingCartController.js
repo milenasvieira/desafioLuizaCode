@@ -7,75 +7,181 @@ module.exports = {
 
             const { clientId, productId } = req.body;
 
-            const [ shoppingCartCreate ] = await ShoppingCart.findOrCreate({
-                  where: { clientId }
+            const shoppingCartFindOne = await ShoppingCart.findOne({
+                  where: { clientId, isFinished: false }
             });
 
-            const shoppingCartID = shoppingCartCreate.id
+            console.log("shoppingCartFindOne", shoppingCartFindOne)
 
-            const productItens = await Product.findByPk(productId)
+            if (shoppingCartFindOne == null) {
 
-            const cartProducsItens = {
-                  shoppingCartId: shoppingCartCreate.id,
-                  productId: productItens.id,
-                  name: productItens.name,
-                  value: productItens.value
-            }     
-            try {
-                  const cartProductFindOne = await CartProduct.findOne({
-                        where: { shoppingCartID , productId }
-                  })
+                  console.log("clientId", clientId)
 
-                  if (cartProductFindOne !== null) throw ("Não é possível adicionar um produto do mesmo tipo no carrinho")
+                  const shoppingCartCreate = await ShoppingCart.create({ clientId, isFinished: false });
 
-                  const cartProductsCreate = await CartProduct.create(cartProducsItens)
-                  
-                  return res.json(cartProductsCreate);
-                  
-            } catch(err) {
-                  return res.status(401).send(err); 
+                  console.log("shoppingCartCreate", shoppingCartCreate)
+
+                  const shoppingCartID = shoppingCartCreate.id
+
+                  //return shoppingCartID
+
+                  await cartProdutsCreate(shoppingCartID)
+
+            } else if (shoppingCartFindOne !== null) {
+
+                  const shoppingCartID = shoppingCartFindOne.id
+
+                  //return shoppingCartID
+
+                  await cartProdutsCreate(shoppingCartID)
+
             }
+
+
+            async function cartProdutsCreate(shoppingCartID) {
+
+                  const productItens = await Product.findByPk(productId)
+
+                  const cartProducsItens = {
+                        shoppingCartId: shoppingCartID,
+                        productId: productItens.id,
+                        name: productItens.name,
+                        value: productItens.value
+                  }
+                  try {
+                        const cartProductFindOne = await CartProduct.findOne({
+                              where: { shoppingCartID, productId }
+                        })
+
+                        if (cartProductFindOne !== null) throw ("Não é possível adicionar um produto do mesmo tipo no carrinho")
+
+                        const cartProductsCreate = await CartProduct.create(cartProducsItens)
+
+                        return res.json(cartProductsCreate);
+
+                  } catch (err) {
+                        return res.status(401).send(err);
+                  }
+            }
+
       },
 
 
 
       async delete(req, res) {
-            
-            const { clientId , productId } = req.body;
+
+            const { clientId, productId } = req.body;
 
             try {
                   const shoppingCartFindOne = await ShoppingCart.findOne({
-                  where: { clientId }
-            });
+                        where: { clientId, isFinished: false }
+                  });
 
-            if (shoppingCartFindOne == null) throw ("Este carrinho não existe.")
+                  if (shoppingCartFindOne == null) throw ("Este carrinho não existe.")
 
-            const shoppingCartId = shoppingCartFindOne.id
+                  const shoppingCartId = shoppingCartFindOne.id
 
+                  const [shoppingCartProducts] = await CartProduct.findAll({
+                        where: { shoppingCartId: shoppingCartFindOne.id }
+                  })
 
-            const [ shoppingCartProducts ] = await CartProduct.findAll({
-                  where: { shoppingCartId: shoppingCartFindOne.id}
-            })
-
-            if (shoppingCartProducts == null) throw ("Este carrinho está vazio.")
-
-
-            const cartProductItem = await CartProduct.findOne({
-                  where: { productId: productId }
-            })
-
-            if (cartProductItem == null) throw ("Este produto não existe nesse carrinho.")
+                  if (shoppingCartProducts == null) throw ("Este carrinho está vazio.")
 
 
-            await CartProduct.destroy({
-                  where: { shoppingCartId , productId }
-            });
+                  const cartProductItem = await CartProduct.findOne({
+                        where: { productId: productId }
+                  })
 
-            return res.send('Produto deletado'); 
+                  if (cartProductItem == null) throw ("Este produto não existe nesse carrinho.")
 
-            } catch(err){
+
+                  await CartProduct.destroy({
+                        where: { shoppingCartId, productId }
+                  });
+
+                  return res.send('Produto deletado');
+
+            } catch (err) {
                   console.log("err", err)
-                  return res.status(404).send(err); 
+                  return res.status(404).send(err);
             }
       }
 }
+
+
+
+// async create(req, res) {
+
+//       const { clientId, productId } = req.body;
+
+//       const [ shoppingCartCreate ] = await ShoppingCart.findOrCreate({
+//             where: { clientId }
+//       });
+
+//       const shoppingCartID = shoppingCartCreate.id
+
+//       const productItens = await Product.findByPk(productId)
+
+//       const cartProducsItens = {
+//             shoppingCartId: shoppingCartCreate.id,
+//             productId: productItens.id,
+//             name: productItens.name,
+//             value: productItens.value
+//       }     
+//       try {
+//             const cartProductFindOne = await CartProduct.findOne({
+//                   where: { shoppingCartID , productId }
+//             })
+
+//             if (cartProductFindOne !== null) throw ("Não é possível adicionar um produto do mesmo tipo no carrinho")
+
+//             const cartProductsCreate = await CartProduct.create(cartProducsItens)
+
+//             return res.json(cartProductsCreate);
+
+//       } catch(err) {
+//             return res.status(401).send(err); 
+//       }
+// },
+
+
+
+// async delete(req, res) {
+
+//       const { clientId , productId } = req.body;
+
+//       try {
+//             const shoppingCartFindOne = await ShoppingCart.findOne({
+//             where: { clientId }
+//       });
+
+//       if (shoppingCartFindOne == null) throw ("Este carrinho não existe.")
+
+//       const shoppingCartId = shoppingCartFindOne.id
+
+
+//       const [ shoppingCartProducts ] = await CartProduct.findAll({
+//             where: { shoppingCartId: shoppingCartFindOne.id}
+//       })
+
+//       if (shoppingCartProducts == null) throw ("Este carrinho está vazio.")
+
+
+//       const cartProductItem = await CartProduct.findOne({
+//             where: { productId: productId }
+//       })
+
+//       if (cartProductItem == null) throw ("Este produto não existe nesse carrinho.")
+
+
+//       await CartProduct.destroy({
+//             where: { shoppingCartId , productId }
+//       });
+
+//       return res.send('Produto deletado'); 
+
+//       } catch(err){
+//             console.log("err", err)
+//             return res.status(404).send(err); 
+//       }
+// }

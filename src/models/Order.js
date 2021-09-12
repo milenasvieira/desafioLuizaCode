@@ -6,7 +6,7 @@ class Order extends Model {
             shoppingCartId: DataTypes.UUID,
             clientId: DataTypes.UUID,
             storeId: DataTypes.UUID,
-            pickedUp: DataTypes.INTEGER[1], //1 Compra Realizada, 2 Compra Retirada
+            orderStatus: DataTypes.INTEGER(1), //1 Compra Realizada, 2 Compra Retirada
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE,
         }, {

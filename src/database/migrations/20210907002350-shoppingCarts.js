@@ -11,15 +11,15 @@ module.exports = {
       clientId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {         // Client hasMany Products n:n
+        references: {         
           model: 'clients',
           key: 'id'
         }
       },
-      // isFinished: {
-      //   type: Sequelize.BOOLEAN,
-      //   default: false, //1 - Compra Realizada | 2 - Compra retirada
-      // },
+      isFinished: {
+        type: Sequelize.BOOLEAN,
+        default: false, 
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

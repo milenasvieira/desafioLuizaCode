@@ -20,7 +20,7 @@ routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionan
 
 routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
-routes.post('/shoppingcarts/checkout', ShoppingCartController.checkout);
+//routes.post('/shoppingcarts/checkout', ShoppingCartController.checkout);
 
 // routes.get('/shoppingcarts/list', ShoppingCartController.list);
 

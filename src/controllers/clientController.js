@@ -3,17 +3,31 @@ const Client = require('../models/Client');
 module.exports = {
 
     async create(req, res) {
-        const { name } = req.body;
 
-        const clients = await Client.create({ name });
+        try {
+            const { name } = req.body;
 
-        return res.json(clients);
+            const clients = await Client.create({ name });
+    
+            return res.status(201).json(clients);
+
+        } catch (err) {
+            
+            return res.status(500).json(err);
+        }
     },
 
     async list(req, res) {
-        const clients = await Client.findAll();
+        try{
+            const clients = await Client.findAll();
 
-        return res.json(clients);
+            return res.status(200).json(clients);
+
+        } catch  {
+
+            return res.status(500).json(err);
+        }
+
     },
 
 };

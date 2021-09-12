@@ -11,11 +11,6 @@ class OrderProduct extends Model {
          sequelize
         })
     }
-    static associate(models) {
-        this.belongsToMany(models.Order, { foreignKey: 'id', through: 'orderProducts', as: 'products' });
-        this.belongsTo(models.Client, { foreignKey: 'id', as: 'clients' });
-        this.hasOne(models.Store, { foreignKey: 'id', as: 'stores' });
-    }
 }
 
-module.exports = ShoppingCart;
+module.exports = OrderProduct;

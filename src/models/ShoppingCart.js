@@ -4,7 +4,7 @@ class ShoppingCart extends Model {
     static init(sequelize) {
         super.init({
             clientId: DataTypes.UUID,
-            //productId: DataTypes.UUID,
+            isFinished: DataTypes.BOOLEAN,
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE
         }, {
