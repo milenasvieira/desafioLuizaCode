@@ -1,5 +1,6 @@
 const ShoppingCart = require('../models/ShoppingCart');
 const Order = require('../models/Order')
+const Client = require('../models/Client')
 var Sequelize = require('sequelize');
 var dbConfig = require('../services/database')
 
@@ -24,22 +25,51 @@ module.exports = {
             const orderItens = {
                 shoppingCartId: shoppingCartId,
                 clientId: shoppingCartItens.clientId,
-                storeId: storeId,  
+                storeId: storeId,
                 orderStatus: 1    //1 - Compra realizada
             }
 
             const orderCreate = await Order.create(orderItens)
 
-            //USAR AQUI ATUALIZAR  ORDERPRODUCTS
-            sequelize.query(`
-            INSERT INTO orderproducts (orderId, productId, name, value)
-            SELECT orders.id, cartproducts.productId, cartproducts.name, cartproducts.value 
-            FROM cartproducts
-            INNER JOIN orders
-            ON cartproducts.shoppingCartId = ${shoppingCartId} = orders.shoppingCartId = ${shoppingCartId};`, { 
-                type:Sequelize.QueryTypes.INSERT
-            }) // .then(function(results) {
-            //     console.log(results) // or do whatever you want
+            const orderId = orderCreate.id
+
+            // const [selectCartProductsItens] = await sequelize.query(`
+            // SELECT * FROM cartproducts
+            // WHERE
+	        //     shoppingcartId =  ${shoppingCartId};`, {
+            //     type: Sequelize.QueryTypes.SELECT
+            // }).then(function (selectCartProductsItens) {
+            //     console.log("selectCartProductsItens", selectCartProductsItens)
+
+            //     const index = selectCartProductsItens.length()
+            //     console.log("index", index)
+            // })
+            // console.log("selectCartProductsItens", selectCartProductsItens)
+            
+
+            // const { selectCartProductsItens } = await sequelize.query(`
+            // INSERT
+            // productId, name, value 
+            // FROM
+            // cartproducts
+            // WHERE
+            // shoppingcartId = ${shoppingcartId};`, { 
+            //     type:Sequelize.QueryTypes.SELECT
+            // }).then(function(results) {
+            // console.log(results) // or do whatever you want
+            // })
+
+
+            // //USAR AQUI ATUALIZAR  ORDERPRODUCTS
+            // sequelize.query(`
+            // INSERT INTO orderproducts (orderId, productId, name, value)
+            // SELECT orders.id, cartproducts.productId, cartproducts.name, cartproducts.value 
+            // FROM cartproducts
+            // INNER JOIN orders
+            // ON cartproducts.shoppingCartId = orders.shoppingCartId`, { 
+            //     type:Sequelize.QueryTypes.INSERT
+            // }).then(function(results) {
+            // console.log(results) // or do whatever you want
             // })
 
             // DELETAR DAQUI
@@ -57,7 +87,7 @@ module.exports = {
             //     name: cartProductsItens.name,
             //     value: cartProductsItens.value
             // }
-            
+
             // const orderProductCreate = await OrderProduct.create(orderProductItens)
             // console.log("orderProductCreate", orderProductCreate)
             // ATÉ AQUI
@@ -70,7 +100,7 @@ module.exports = {
                 }
             });
 
-            return res.status(201).json('Compra Realizada', orderCreate);
+            return res.status(201).json('Compra Realizada');
 
         } catch (err) {
             return res.status(400).send(err);
@@ -83,29 +113,41 @@ module.exports = {
 
         try {
             const orderItens = await Order.findByPk(orderId)
-            console.log('orderItens',orderItens)
+            console.log('orderItens', orderItens)
             if (orderItens == null) throw ("Compra não localizada.")
 
             const storeId = orderItens.storeId
-            console.log('storeId',storeId)
+            console.log('storeId', storeId)
 
-            if(storeId == null) throw ("Nenhuma loja selecionada para retirar esta compra.")
+            if (storeId == null) throw ("Nenhuma loja selecionada para retirar esta compra.")
 
             const orderStatusUpdate = await Order.update({ //verificar se atualizou a tabela
-            orderStatus: orderStatus  //2 - Compra retirada
-        }, {
-            where: {
-                id: orderId
-            }
-        });
+                orderStatus: orderStatus  //2 - Compra retirada
+            }, {
+                where: {
+                    id: orderId
+                }
+            });
 
-        return res.status(201).json("Compra Retirada");
+            return res.status(201).json("Compra Retirada");
 
         } catch (err) {
             return res.status(404).json(err);
         }
-        
+
+    },
+
+    async listOrderByClient(req, res) {
+
+        const { clientId } = req.body;
+
+        const clientOrders = await Order.findAll({
+            where: { clientId: clientId }
+        });
+
+        return res.status(200).json(clientOrders);
     }
+
 }
 
 
