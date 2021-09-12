@@ -3,27 +3,33 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('cartProducts', {
-      productId: {
-        type: Sequelize.INTEGER,
-        references: { model: 'products', key: 'id' },
-        onDelete: 'CASCADE',
+      id: {
         allowNull: false,
-        primaryKey: true
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
       shoppingCartId: {
         type: Sequelize.INTEGER,
         references: { model: 'shoppingCarts', key: 'id' },
         onDelete: 'CASCADE',
         allowNull: false,
-        primaryKey: true
+        //primaryKey: true
+      },
+      productId: {
+        type: Sequelize.INTEGER,
+        references: { model: 'products', key: 'id' },
+        onDelete: 'CASCADE',
+        allowNull: false,
+        //primaryKey: true
       },
       name: {
         type: Sequelize.STRING(150),
-        allowNull: false
+        allowNull: false,
       },
       value: {
         type: Sequelize.DOUBLE(18,2),
-        allowNull: false
+        allowNull: false,
     }
     })
   },
@@ -33,3 +39,4 @@ module.exports = {
   }
 };
 
+//npx sequelize-cli db:migrate:undo:all --to 20210907002457-cartProducts.js

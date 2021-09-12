@@ -32,9 +32,9 @@ module.exports = {
           key: 'id'
         }
       },
-      pickedUp: {
-        type: Sequelize.BOOLEAN,
-        default: false,
+      orderStatus: {
+        type: Sequelize.INTEGER,
+        default: 1,   //1 - Compra Realizada | 2 - Compra retirada
       },
       createdAt: {
         allowNull: false,

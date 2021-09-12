@@ -1,17 +1,24 @@
-const { Model, DataTypes } = require('sequelize')
+const { Model, DataTypes } = require('sequelize');
 
 class ShoppingCart extends Model {
-    static init(sequelize){
+    static init(sequelize) {
         super.init({
+            clientId: DataTypes.UUID,
+            isFinished: DataTypes.BOOLEAN,
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE
-        },{
-         sequelize
+        }, {
+            sequelize
         })
     }
     static associate(models) {
         this.hasOne(models.Order, { foreignKey: 'id', as: 'orders' });
-        this.belongsToMany(models.Product, { foreignKey: 'id', through: 'cartProducts', as: 'products' });
+        this.belongsToMany(models.Product, {
+            foreignKey: 'shoppingCartId',
+            otherKey: 'productId',
+            through: 'cartProducts',
+            as: 'products'
+        });
         this.belongsTo(models.Client, { foreignKey: 'id', as: 'clients' });
     }
 }

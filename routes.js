@@ -5,24 +5,27 @@ const ProductController = require('./src/controllers/ProductController');
 const StoreController = require('./src/controllers/StoreController');
 const ClientController = require('./src/controllers/ClientController');
 const ShoppingCartController = require('./src/controllers/shoppingCartController');
+const OrderController = require('./src/controllers/OrderController');
 
 const routes = express.Router();
 
-routes.get('/products/list', ProductController.list);
+routes.get('/products/list', ProductController.list); //funcionando
 
-routes.get('/stores/list', StoreController.list);
+routes.get('/stores/list', StoreController.list);   //funcionando
 
-routes.post('/clients/create', ClientController.store);
+routes.post('/clients/create', ClientController.create); //funcionando
 
-routes.get('/clients/list', ClientController.list);
+routes.get('/clients/list', ClientController.list); //funcionando
 
-// routes.get('/shoppingcarts/create', ShoppingCartController.create);
+routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionando
 
-// routes.get('/shoppingcarts/delete', ShoppingCartController.delete);
+routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
-// routes.get('/shoppingcarts/checkout', ShoppingCartController.checkout);
+routes.post('/order/create', OrderController.create); // quase funcionando
 
-// routes.get('/shoppingcarts/list', ShoppingCartController.list);
+routes.put('/order/update/status', OrderController.updateStatus); //funcionando
+
+routes.get('/clients/orders/list', OrderController.listOrderByClient);  //funcionado
 
 
 
