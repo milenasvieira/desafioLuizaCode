@@ -34,10 +34,10 @@ module.exports = {
                 where: { shoppingCartId },
                 raw: true
             })
-            console.log("cartProductsItens", cartProductsItens)
+         
 
             for (const iterator of cartProductsItens) {
-                console.log("iterator",iterator)
+              
 
                 const orderProductItens = {
                     orderId: orderID,
@@ -47,7 +47,7 @@ module.exports = {
                 }
                 
                 const orderProductCreate = await OrderProduct.create(orderProductItens)
-                console.log("orderProductCreate", orderProductCreate)
+             
             }
              
             await ShoppingCart.update({
@@ -71,13 +71,17 @@ module.exports = {
 
         try {
             const orderItens = await Order.findByPk(orderId)
+
+
             if (orderItens == null) throw ("Compra não localizada.")
 
             const storeId = orderItens.storeId
 
+
             if (storeId == null) throw ("Nenhuma loja selecionada para retirar esta compra.")
 
-            const orderStatusUpdate = await Order.update({
+            const orderStatusUpdate = await Order.update({ 
+
                 orderStatus: orderStatus  //2 - Compra retirada
             }, {
                 where: {
@@ -105,5 +109,3 @@ module.exports = {
     }
 
 }
-
-

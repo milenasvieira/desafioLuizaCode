@@ -29,8 +29,6 @@ module.exports = {
 
                   const shoppingCartID = shoppingCartFindOne.id
 
-                  //return shoppingCartID
-
                   await cartProdutsCreate(shoppingCartID)
 
             }

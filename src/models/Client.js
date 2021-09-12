@@ -4,8 +4,6 @@ class Client extends Model {
     static init(sequelize) {
         super.init({
             name: DataTypes.STRING,
-            // createdAt: DataTypes.DATE,
-            // updatedAt: DataTypes.DATE,
         }, {
             sequelize
         })

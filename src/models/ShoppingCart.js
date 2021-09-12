@@ -24,5 +24,3 @@ class ShoppingCart extends Model {
 }
 
 module.exports = ShoppingCart;
-
-// tava dando muito erro em store storeId - alterei para id ai listou os produtos.
