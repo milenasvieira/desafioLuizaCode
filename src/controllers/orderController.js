@@ -45,10 +45,10 @@ module.exports = {
                     name: iterator.name,
                     value: iterator.value
                 }
-                console.log("orderProductItens",orderProductItens)
+
 
                 const orderProductCreate = await OrderProduct.create(orderProductItens)
-                console.log("orderProductCreate", orderProductCreate)
+
             }
 
             await ShoppingCart.update({
@@ -72,15 +72,15 @@ module.exports = {
 
         try {
             const orderItens = await Order.findByPk(orderId)
-            console.log('orderItens', orderItens)
+
             if (orderItens == null) throw ("Compra não localizada.")
 
             const storeId = orderItens.storeId
-            console.log('storeId', storeId)
+
 
             if (storeId == null) throw ("Nenhuma loja selecionada para retirar esta compra.")
 
-            const orderStatusUpdate = await Order.update({ //verificar se atualizou a tabela
+            const orderStatusUpdate = await Order.update({ 
                 orderStatus: orderStatus  //2 - Compra retirada
             }, {
                 where: {
@@ -108,96 +108,3 @@ module.exports = {
     }
 
 }
-
-            // const countCartProducts = await CartProduct.count({
-            //     where: {shoppingCartId: shoppingCartId }
-            // })
-            // console.log("countCartProducts", countCartProducts)
-
-           // const orderProductItens = {
-            //     orderId: orderID,
-            //     productId: cartProductsItens.productId,
-            //     name: cartProductsItens.name,
-            //     value: cartProductsItens.value
-            // }
-
-            // const orderProductCreate = await OrderProduct.create(orderProductItens)
-            // console.log("orderProductCreate", orderProductCreate)
-
-            // const { count1, rows1 } = await CartProduct.findAndCountAll({
-            //     where: {
-            //       shoppingCartId: { shoppingCartId: shoppingCartId }
-            //     }
-            //   });
-            //   console.log("count1", count1);
-            //   console.log("rows1", rows1);
-
-
-            // const { count2, rows2 } = await CartProduct.findAndCountAll({
-            //     where: {
-            //         title: {
-            //             shoppingCartId: { shoppingCartId: shoppingCartId }
-            //         }
-            //     }
-            //   });
-            //   console.log("count2", count2);
-            //   console.log("rows2", rows2);
-
-            // const [selectCartProductsItens] = await sequelize.query(`
-            // SELECT * FROM cartproducts
-            // WHERE
-	        //     shoppingcartId =  ${shoppingCartId};`, {
-            //     type: Sequelize.QueryTypes.SELECT
-            // }).then(function (selectCartProductsItens) {
-            //     console.log("selectCartProductsItens", selectCartProductsItens)
-
-            //     const index = selectCartProductsItens.length()
-            //     console.log("index", index)
-            // })
-            // console.log("selectCartProductsItens", selectCartProductsItens)
-
-
-            // const { selectCartProductsItens } = await sequelize.query(`
-            // INSERT
-            // productId, name, value 
-            // FROM
-            // cartproducts
-            // WHERE
-            // shoppingcartId = ${shoppingcartId};`, { 
-            //     type:Sequelize.QueryTypes.SELECT
-            // }).then(function(results) {
-            // console.log(results) // or do whatever you want
-            // })
-
-
-            // //USAR AQUI ATUALIZAR  ORDERPRODUCTS
-            // sequelize.query(`
-            // INSERT INTO orderproducts (orderId, productId, name, value)
-            // SELECT orders.id, cartproducts.productId, cartproducts.name, cartproducts.value 
-            // FROM cartproducts
-            // INNER JOIN orders
-            // ON cartproducts.shoppingCartId = orders.shoppingCartId`, { 
-            //     type:Sequelize.QueryTypes.INSERT
-            // }).then(function(results) {
-            // console.log(results) // or do whatever you want
-            // })
-
-            // DELETAR DAQUI
-            // const cartProductsItens = await CartProduct.findAll({
-            //     where: { shoppingCartId }
-            // })
-            // console.log("cartProductsItens", cartProductsItens)
-
-            // const cartProductKeys = cartProductsItens.keys(dataValues)
-            // console.log("cartProductKeys",cartProductKeys)
-
-            // const orderProductItens = {
-            //     orderId: orderID,
-            //     productId: cartProductsItens.productId,
-            //     name: cartProductsItens.name,
-            //     value: cartProductsItens.value
-            // }
-
-            // const orderProductCreate = await OrderProduct.create(orderProductItens)
-            // console.log("orderProductCreate", orderProductCreate)
-            // ATÉ AQUI

@@ -36,11 +36,3 @@ module.exports = {
     return queryInterface.dropTable('shoppingCarts');
   }
 };
-
-//     shoppingCart.belongsToMany(products, {
-//       through: cartProducts
-//     })
-
-//     products.belongsToMany(shoppingCart, {
-//       through: cartProducts
-//     })
