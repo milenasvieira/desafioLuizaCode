@@ -5,6 +5,7 @@ const ProductController = require('./src/controllers/ProductController');
 const StoreController = require('./src/controllers/StoreController');
 const ClientController = require('./src/controllers/ClientController');
 const ShoppingCartController = require('./src/controllers/shoppingCartController');
+const OrderController = require('./src/controllers/OrderController');
 
 const routes = express.Router();
 
@@ -20,7 +21,7 @@ routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionan
 
 routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
-//routes.post('/shoppingcarts/checkout', ShoppingCartController.checkout);
+routes.post('/order/create', OrderController.create);
 
 // routes.get('/shoppingcarts/list', ShoppingCartController.list);
 

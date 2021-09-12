@@ -11,8 +11,6 @@ module.exports = {
                   where: { clientId, isFinished: false }
             });
 
-            console.log("shoppingCartFindOne", shoppingCartFindOne)
-
             if (shoppingCartFindOne == null) {
 
                   console.log("clientId", clientId)

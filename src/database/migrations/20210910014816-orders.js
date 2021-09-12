@@ -8,14 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      // shoppingCartId: {
-      //   type: Sequelize.INTEGER,
-      //   allowNull: false,
-      //   references: {         
-      //     model: 'shoppingcarts',
-      //     key: 'id'
-      //   }
-      // },
+      shoppingCartId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {         
+          model: 'shoppingcarts',
+          key: 'id'
+        }
+      },
       clientId: {
         type: Sequelize.INTEGER,
         allowNull: false,
