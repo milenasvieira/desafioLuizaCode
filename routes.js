@@ -8,9 +8,13 @@ const ShoppingCartController = require('./src/controllers/shoppingCartController
 
 const routes = express.Router();
 
+/*PRODUTS*/
 routes.get('/products/list', ProductController.list);
 
+/*STORES*/
 routes.get('/stores/list', StoreController.list);
+
+/*CLIENTS*/
 
 routes.post('/clients/create', ClientController.store);
 
