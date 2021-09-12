@@ -12,38 +12,6 @@
    </p>
 <p>
 
-- Listar lojas físicas;     x
-- Cadastrar clientes;       x
-- Listar produtos;          x
-- Adicionar um produto na lista de compra da cliente;   x
-- Remover um produto da lista de compra da cliente;   x
-- Finalizar compra;   
-- Consultar todas as compras realizadas da cliente;
-
-## Como rodar
-
-🔥 Instalação e execução
-Faça um clone desse repositório;
-git clone HTTPS https://github.com/milenasvieira/desafioLuizaCode.git
-  or
-git clone SSH git@github.com:milenasvieira/desafioLuizaCode.git     //branch teste jadeohara-090921-crud
-Excute o projeto por qualquer IDE
-Visual Studio Code
-Altere as credencias de banco dentro de:
-/`src/services/database.js`
-Rode para criar o banco de dados;
-/`npx sequelize-cli db:create`
-Rode para executar as migrations;
-/`npx sequelize-cli db:migrate`
-Rode para executar as seeders;
-/ `npx sequelize-cli db:seed:all`
-Rode para iniciar o servidor;
-/ `node index.js ou nodemon index.js`
-Acesse os endpoints e importe o arquivo Insomnia_2021-09-10.json desse repositório no Insomnia;
-Postman / Insomnia
-
-//Adicionar dependências com npm - inclusive sequelize-cli global
-=======
 # Sobre o projeto
 
 Desenvolver uma das funcionalidades mais interessantes em um e-commerce é a Omni Channel. Ou seja, não há mais diferenças entre lojas físicas ou na web. O consumidor pode procurar 
@@ -145,26 +113,24 @@ Siga as instruções para executar a API.
 
 **Você tem acesso aos seguintes endpoints:**
 
-_Client Endpoints_
-![swagger-controller-client]
+_Clients Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133003343-77062101-31f6-4523-84be-956293cdd612.png)
+    
+_Products Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133003372-0604b570-9583-4d6e-a99f-1334e4ce78b9.png)
 
-_Product Endpoints_
-![swagger-controller-product]
+_Stores Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133003386-f801a76b-765b-4a2c-bf11-fc9425b86d11.png)
 
-_Store Endpoints_
-![swagger-controller-store]
 
-_Wishlist Endpoints_
-![swagger-controller-shoppingCart]
-
-EndPoints adicionais:
-
-_Client_
-![end-point-adicional-client]
-
-_Product_
-![end-point-adicional-product]
-
+_Order Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133003396-90bb392d-e324-48e1-be54-b32466111bf7.png)
+    
+_shoppingcarts_
+![image](https://user-images.githubusercontent.com/41996167/133003457-a00c80a6-cb24-4151-9450-55a34bc067de.png)
+    
+    
+    
 
 ## <p align="center"> Equipe desenvolvedora 💖</p>
 
@@ -259,3 +225,5 @@ _Product_
 </td>
 
 </table>
+
+    
