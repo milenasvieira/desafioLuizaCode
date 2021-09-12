@@ -21,11 +21,11 @@ routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionan
 
 routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
-routes.post('/order/create', OrderController.create); // quase funcionando
+routes.post('/order/create', OrderController.create); // funcionando
 
-routes.put('/order/update/status', OrderController.updateStatus); //funcionando
+routes.put('/order/update/status', OrderController.updateStatus); // funcionando
 
-routes.get('/clients/orders/list', OrderController.listOrderByClient);  //funcionado
+routes.get('/clients/orders/list', OrderController.listOrderByClient);  // funcionado
 
 
 

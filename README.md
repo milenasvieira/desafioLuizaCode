@@ -10,8 +10,8 @@
 - Listar produtos;          x
 - Adicionar um produto na lista de compra da cliente;   x
 - Remover um produto da lista de compra da cliente;   x
-- Finalizar compra;   
-- Consultar todas as compras realizadas da cliente;
+- Finalizar compra;   x
+- Consultar todas as compras realizadas da cliente;  x
 
 ## Como rodar
 
