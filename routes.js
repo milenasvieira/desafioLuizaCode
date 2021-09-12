@@ -21,7 +21,9 @@ routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionan
 
 routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
-routes.post('/order/create', OrderController.create);
+routes.post('/order/create', OrderController.create); //funcionando
+
+routes.put('/order/update/status', OrderController.updateStatus); //funcionando
 
 // routes.get('/shoppingcarts/list', ShoppingCartController.list);
 
