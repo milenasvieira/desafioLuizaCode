@@ -11,13 +11,13 @@ module.exports = {
         try {
             const shoppingCartItens = await ShoppingCart.findByPk(shoppingCartId)
 
-            if (shoppingCartItens == null) throw ("Não foi possível finalizar a compra. O carrinho não existe.")
+            if (shoppingCartItens == null || shoppingCartItens == "") throw ("Não foi possível finalizar a compra. O carrinho não existe.")
 
             const shoppingCartFindOneInOrder = await Order.findOne({
                 where: { shoppingCartId }
             });
 
-            if (shoppingCartFindOneInOrder !== null) throw ("Esta compra já foi realizada.")
+            if (shoppingCartFindOneInOrder !== null || shoppingCartFindOneInOrder == "") throw ("Esta compra já foi realizada.")
 
             const orderItens = {
                 shoppingCartId: shoppingCartId,
@@ -34,10 +34,10 @@ module.exports = {
                 where: { shoppingCartId },
                 raw: true
             })
-            console.log("cartProductsItens", cartProductsItens)
+         
 
             for (const iterator of cartProductsItens) {
-                console.log("iterator",iterator)
+              
 
                 const orderProductItens = {
                     orderId: orderID,
@@ -45,12 +45,11 @@ module.exports = {
                     name: iterator.name,
                     value: iterator.value
                 }
-
-
+                
                 const orderProductCreate = await OrderProduct.create(orderProductItens)
-
+             
             }
-
+             
             await ShoppingCart.update({
                 isFinished: true    //carrinho de compras se tornou uma compra realizada
             }, {
@@ -73,6 +72,7 @@ module.exports = {
         try {
             const orderItens = await Order.findByPk(orderId)
 
+
             if (orderItens == null) throw ("Compra não localizada.")
 
             const storeId = orderItens.storeId
@@ -81,6 +81,7 @@ module.exports = {
             if (storeId == null) throw ("Nenhuma loja selecionada para retirar esta compra.")
 
             const orderStatusUpdate = await Order.update({ 
+
                 orderStatus: orderStatus  //2 - Compra retirada
             }, {
                 where: {
