@@ -17,17 +17,20 @@ routes.get('/stores/list', StoreController.list);
 
 /*CLIENTS*/
 
-routes.post('/clients/create', ClientController.store);
+routes.post('/clients/create', ClientController.create);
 
 routes.get('/clients/list', ClientController.list); //funcionando
 
+/*SHOPPINGCARTS*/
 routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionando
 
 routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
+/*ORDER*/
 routes.post('/order/create', OrderController.create);
 
 // routes.get('/shoppingcarts/list', ShoppingCartController.list);
+
 
 
 
