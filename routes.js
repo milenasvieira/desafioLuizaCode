@@ -29,7 +29,9 @@ routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcio
 /*ORDER*/
 routes.post('/order/create', OrderController.create);
 
-// routes.get('/shoppingcarts/list', ShoppingCartController.list);
+routes.put('/order/update/status', OrderController.updateStatus); //funcionando
+
+routes.get('/clients/orders/list', OrderController.listOrderByClient);  //funcionado
 
 
 
