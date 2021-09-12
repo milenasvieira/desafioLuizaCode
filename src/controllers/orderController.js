@@ -1,10 +1,7 @@
 const ShoppingCart = require('../models/ShoppingCart');
 const Order = require('../models/Order')
-const Client = require('../models/Client')
-var Sequelize = require('sequelize');
-var dbConfig = require('../services/database')
-
-const sequelize = new Sequelize(dbConfig);
+const OrderProduct = require('../models/OrderProduct')
+const CartProduct = require('../models/CartProduct')
 
 module.exports = {
     async create(req, res) {
@@ -31,66 +28,28 @@ module.exports = {
 
             const orderCreate = await Order.create(orderItens)
 
-            const orderId = orderCreate.id
+            const orderID = orderCreate.id
 
-            // const [selectCartProductsItens] = await sequelize.query(`
-            // SELECT * FROM cartproducts
-            // WHERE
-	        //     shoppingcartId =  ${shoppingCartId};`, {
-            //     type: Sequelize.QueryTypes.SELECT
-            // }).then(function (selectCartProductsItens) {
-            //     console.log("selectCartProductsItens", selectCartProductsItens)
+            const cartProductsItens = await CartProduct.findAll({
+                where: { shoppingCartId },
+                raw: true
+            })
+            console.log("cartProductsItens", cartProductsItens)
 
-            //     const index = selectCartProductsItens.length()
-            //     console.log("index", index)
-            // })
-            // console.log("selectCartProductsItens", selectCartProductsItens)
-            
+            for (const iterator of cartProductsItens) {
+                console.log("iterator",iterator)
 
-            // const { selectCartProductsItens } = await sequelize.query(`
-            // INSERT
-            // productId, name, value 
-            // FROM
-            // cartproducts
-            // WHERE
-            // shoppingcartId = ${shoppingcartId};`, { 
-            //     type:Sequelize.QueryTypes.SELECT
-            // }).then(function(results) {
-            // console.log(results) // or do whatever you want
-            // })
+                const orderProductItens = {
+                    orderId: orderID,
+                    productId: iterator.productId,
+                    name: iterator.name,
+                    value: iterator.value
+                }
+                console.log("orderProductItens",orderProductItens)
 
-
-            // //USAR AQUI ATUALIZAR  ORDERPRODUCTS
-            // sequelize.query(`
-            // INSERT INTO orderproducts (orderId, productId, name, value)
-            // SELECT orders.id, cartproducts.productId, cartproducts.name, cartproducts.value 
-            // FROM cartproducts
-            // INNER JOIN orders
-            // ON cartproducts.shoppingCartId = orders.shoppingCartId`, { 
-            //     type:Sequelize.QueryTypes.INSERT
-            // }).then(function(results) {
-            // console.log(results) // or do whatever you want
-            // })
-
-            // DELETAR DAQUI
-            // const cartProductsItens = await CartProduct.findAll({
-            //     where: { shoppingCartId }
-            // })
-            // console.log("cartProductsItens", cartProductsItens)
-
-            // const cartProductKeys = cartProductsItens.keys(dataValues)
-            // console.log("cartProductKeys",cartProductKeys)
-
-            // const orderProductItens = {
-            //     orderId: orderID,
-            //     productId: cartProductsItens.productId,
-            //     name: cartProductsItens.name,
-            //     value: cartProductsItens.value
-            // }
-
-            // const orderProductCreate = await OrderProduct.create(orderProductItens)
-            // console.log("orderProductCreate", orderProductCreate)
-            // ATÉ AQUI
+                const orderProductCreate = await OrderProduct.create(orderProductItens)
+                console.log("orderProductCreate", orderProductCreate)
+            }
 
             await ShoppingCart.update({
                 isFinished: true    //carrinho de compras se tornou uma compra realizada
@@ -150,4 +109,95 @@ module.exports = {
 
 }
 
+            // const countCartProducts = await CartProduct.count({
+            //     where: {shoppingCartId: shoppingCartId }
+            // })
+            // console.log("countCartProducts", countCartProducts)
 
+           // const orderProductItens = {
+            //     orderId: orderID,
+            //     productId: cartProductsItens.productId,
+            //     name: cartProductsItens.name,
+            //     value: cartProductsItens.value
+            // }
+
+            // const orderProductCreate = await OrderProduct.create(orderProductItens)
+            // console.log("orderProductCreate", orderProductCreate)
+
+            // const { count1, rows1 } = await CartProduct.findAndCountAll({
+            //     where: {
+            //       shoppingCartId: { shoppingCartId: shoppingCartId }
+            //     }
+            //   });
+            //   console.log("count1", count1);
+            //   console.log("rows1", rows1);
+
+
+            // const { count2, rows2 } = await CartProduct.findAndCountAll({
+            //     where: {
+            //         title: {
+            //             shoppingCartId: { shoppingCartId: shoppingCartId }
+            //         }
+            //     }
+            //   });
+            //   console.log("count2", count2);
+            //   console.log("rows2", rows2);
+
+            // const [selectCartProductsItens] = await sequelize.query(`
+            // SELECT * FROM cartproducts
+            // WHERE
+	        //     shoppingcartId =  ${shoppingCartId};`, {
+            //     type: Sequelize.QueryTypes.SELECT
+            // }).then(function (selectCartProductsItens) {
+            //     console.log("selectCartProductsItens", selectCartProductsItens)
+
+            //     const index = selectCartProductsItens.length()
+            //     console.log("index", index)
+            // })
+            // console.log("selectCartProductsItens", selectCartProductsItens)
+
+
+            // const { selectCartProductsItens } = await sequelize.query(`
+            // INSERT
+            // productId, name, value 
+            // FROM
+            // cartproducts
+            // WHERE
+            // shoppingcartId = ${shoppingcartId};`, { 
+            //     type:Sequelize.QueryTypes.SELECT
+            // }).then(function(results) {
+            // console.log(results) // or do whatever you want
+            // })
+
+
+            // //USAR AQUI ATUALIZAR  ORDERPRODUCTS
+            // sequelize.query(`
+            // INSERT INTO orderproducts (orderId, productId, name, value)
+            // SELECT orders.id, cartproducts.productId, cartproducts.name, cartproducts.value 
+            // FROM cartproducts
+            // INNER JOIN orders
+            // ON cartproducts.shoppingCartId = orders.shoppingCartId`, { 
+            //     type:Sequelize.QueryTypes.INSERT
+            // }).then(function(results) {
+            // console.log(results) // or do whatever you want
+            // })
+
+            // DELETAR DAQUI
+            // const cartProductsItens = await CartProduct.findAll({
+            //     where: { shoppingCartId }
+            // })
+            // console.log("cartProductsItens", cartProductsItens)
+
+            // const cartProductKeys = cartProductsItens.keys(dataValues)
+            // console.log("cartProductKeys",cartProductKeys)
+
+            // const orderProductItens = {
+            //     orderId: orderID,
+            //     productId: cartProductsItens.productId,
+            //     name: cartProductsItens.name,
+            //     value: cartProductsItens.value
+            // }
+
+            // const orderProductCreate = await OrderProduct.create(orderProductItens)
+            // console.log("orderProductCreate", orderProductCreate)
+            // ATÉ AQUI
