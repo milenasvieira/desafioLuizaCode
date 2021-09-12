@@ -105,7 +105,7 @@ Siga as instruções para executar a API.
    ```
 9. Acesse o Swagger
    ```sh
-   localhost:8080/swagger-uui.html 
+   http://localhost:3000/docs/ 
    ```
 
 <!-- USAGE EXAMPLES -->
