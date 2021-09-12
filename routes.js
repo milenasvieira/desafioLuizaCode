@@ -5,6 +5,7 @@ const ProductController = require('./src/controllers/ProductController');
 const StoreController = require('./src/controllers/StoreController');
 const ClientController = require('./src/controllers/ClientController');
 const ShoppingCartController = require('./src/controllers/shoppingCartController');
+const OrderController = require('./src/controllers/OrderController');
 
 const routes = express.Router();
 
@@ -18,13 +19,13 @@ routes.get('/stores/list', StoreController.list);
 
 routes.post('/clients/create', ClientController.store);
 
-routes.get('/clients/list', ClientController.list);
+routes.get('/clients/list', ClientController.list); //funcionando
 
-// routes.get('/shoppingcarts/create', ShoppingCartController.create);
+routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionando
 
-// routes.get('/shoppingcarts/delete', ShoppingCartController.delete);
+routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
 
-// routes.get('/shoppingcarts/checkout', ShoppingCartController.checkout);
+routes.post('/order/create', OrderController.create);
 
 // routes.get('/shoppingcarts/list', ShoppingCartController.list);
 

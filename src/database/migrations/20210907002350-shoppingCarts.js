@@ -11,18 +11,14 @@ module.exports = {
       clientId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {         // Client hasMany Products n:n
+        references: {         
           model: 'clients',
           key: 'id'
         }
       },
-      productId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {         // products hasMany Clients n:n
-          model: 'products',
-          key: 'id'
-        }
+      isFinished: {
+        type: Sequelize.BOOLEAN,
+        default: false, 
       },
       createdAt: {
         allowNull: false,
