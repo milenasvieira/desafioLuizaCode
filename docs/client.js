@@ -450,7 +450,7 @@ const client = {
                 },
             }
         },
-        "/clients/orders/list": {
+        "/clients/orders/list/{clientId}": {
             get: {
                 tags: ["Orders"],
                 summary: "Lista de Pedidos",
@@ -458,9 +458,13 @@ const client = {
                 description: " Listar de pedidos",
                 parameters: [
                    // expected parameters
-                    {
+                    { 
                         name: "clientId", // name of param
-                        in: "Query", // location of param
+                        in: "path", // location of param
+                        description: "",
+                        required: true,
+                        type: "integer",
+                                             
                         schema: {
                              $ref: "#/components/schemas/clientId", // id model
                          },
