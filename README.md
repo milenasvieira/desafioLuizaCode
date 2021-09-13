@@ -18,11 +18,11 @@ Desenvolver uma das funcionalidades mais interessantes em um e-commerce é a Omn
 o produto em uma loja física e comprar pela internet ou vice-versa. 
 Basicamente, o cliente Omni Channel é aquele que utiliza de todos os canais simultaneamente, cruzando compras em ambientes físicos e online.
 
-Essa API permite a aplicação do conhecimento que desenvolvemos durante o curso. Colocando em prática os conceitos e exercícios propostos, centralizando as principais caracteristicas de uma Omni Channel.
+Essa API permite a aplicação do conhecimento que desenvolvemos durante o curso. Colocando em prática os conceitos e exercícios propostos, centralizando as principais características de uma Omni Channel.
 
 ## Arquitetura do projeto:
 
-**Contêm os seguintes EndPoints obrigatorios**
+**Contém os seguintes EndPoints obrigatórios**
 
 * Listar produtos;
 * Listar lojas físicas;
@@ -33,33 +33,35 @@ Essa API permite a aplicação do conhecimento que desenvolvemos durante o curso
 * Consultar todas as compras realizadas da cliente;
 
 
-**Exemplo de um database simples com seus relacionamentos(Diagrama):**
+**Exemplo de um database simples com seus relacionamentos (Diagrama):**
     
 ![image](https://user-images.githubusercontent.com/41996167/132949125-c49646d2-eba9-4117-aa43-d6ba6250b598.png)
 
 
-## 🚀 Tecnologias Utilizadas: <br><br>
+## 🚀 Tecnologias Utilizadas: <br>
 
-<a href="Java">
-   <img align="center" alt="java" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg">
+<a href="Node">
+   <img align="center" alt="node" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-plain.svg">
 </a>
-<a href="Java">
+<a href="MySQL">
    <img align="center" alt="mysql" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg">
 </a>
-    <a href="Java">
-   <img align="center" alt="mysql" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg">
+    <a href="express">
+   <img align="center" alt="express" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg">
 </a>
-    <a href="Java">
-   <img align="center" alt="mysql" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sequelize/sequelize-original.svg">
+    <a href="sequelize">
+   <img align="center" alt="sequelize" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sequelize/sequelize-original.svg">
 </a>
 
 - ⚡ Express — A web framework for Node.js
 - 💾 Sequelize — SQL dialect ORM for Node.js
+- 📚 MySQL - Database
 
     
 ## ✋🏻 Pré-requisitos
 
 - [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
 
 
 <!-- GETTING STARTED -->
@@ -75,34 +77,29 @@ Siga as instruções para executar a API.
      or
    git clone SSH git@github.com:milenasvieira/desafioLuizaCode.git
    ```
-2. Excute o projeto por qualquer IDE
+2. Execute o projeto por qualquer IDE
    ```sh
-   Visual Studio Code
+   npm init
+   npm install
    ```
-3. Caso deseje alterar as credencias de banco, acesse:
+3. Crie um banco de dados com o nome "luiza_code". Ou caso deseje alterar as credenciais de banco, acesse:
     ```sh
    /`src/services/database.js`
    ```
-4. Rode para criar o banco de dados;
-    ```sh
-   /`npx sequelize-cli db:create`
-   ```
-5. Rode  para executar as migrations;
+4. Execute as migrations;
      ```sh
    /`npx sequelize-cli db:migrate`
    ```   
-6. Rode para executar as seeders;
+5. Execute as seeders;
       ```sh
    / `npx sequelize-cli db:seed:all`
    ```   
-7. Rode para iniciar o servidor;
+6. Inicie o servidor;
     ```sh
    / `node index.js ou nodemon index.js`
    ```
-8. Acesse os endpoints e  importe o arquivo `Insomnia_2021-09-10.json` ou postman `postman_2021-09-10.json` desse repositório no Insomnia ou postman;
-   ```sh
-   Postman / Insomnia 
-   ```
+7. Acesse os endpoints e importe o arquivo do postman `desafioLuizaCodeLuDevs.postman_collection.json` na pasta testes desse repositório;
+
 9. Acesse o Swagger
    ```sh
    http://localhost:3000/docs/ 
@@ -126,7 +123,7 @@ _Stores Endpoints_
 _Order Endpoints_
 ![image](https://user-images.githubusercontent.com/41996167/133003396-90bb392d-e324-48e1-be54-b32466111bf7.png)
     
-_shoppingcarts_
+_Shopping Carts EndPoints_
 ![image](https://user-images.githubusercontent.com/41996167/133003457-a00c80a6-cb24-4151-9450-55a34bc067de.png)
     
     
@@ -156,7 +153,7 @@ _shoppingcarts_
  <td align="center"><br>
         <a href="https://www.linkedin.com/in/milena-s-vieira">
             <img src="https://avatars.githubusercontent.com/u/78439783?v=4" width="105px;" alt="Milena Soares" style="max-width:100%;border-radius: 50%;">
-            <br><sub><b>Milena Soares</b></sub><br>
+            <br><sub><b>Milena Vieira</b></sub><br>
         <p align="center">
             </a><br>
             <a href="https://github.com/milenasvieira">
