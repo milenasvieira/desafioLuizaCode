@@ -75,7 +75,8 @@ Siga as instruções para executar a API.
      or
    git clone SSH git@github.com:milenasvieira/desafioLuizaCode.git
    ```
-2. Excute o projeto por qualquer IDE
+  
+2. Excute o projeto por qualquer IDE;
    ```sh
    Visual Studio Code
    ```
@@ -105,7 +106,8 @@ Siga as instruções para executar a API.
    ```
 9. Acesse o Swagger
    ```sh
-   http://localhost:3000/docs/ 
+
+   http://localhost:3000/docs 
    ```
 
 <!-- USAGE EXAMPLES -->
@@ -113,24 +115,20 @@ Siga as instruções para executar a API.
 
 **Você tem acesso aos seguintes endpoints:**
 
-_Clients Endpoints_
-![image](https://user-images.githubusercontent.com/41996167/133003343-77062101-31f6-4523-84be-956293cdd612.png)
-    
-_Products Endpoints_
-![image](https://user-images.githubusercontent.com/41996167/133003372-0604b570-9583-4d6e-a99f-1334e4ce78b9.png)
+_Client Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133008323-e88dcffe-21d5-42c1-a030-6939212dffd0.png)
 
-_Stores Endpoints_
-![image](https://user-images.githubusercontent.com/41996167/133003386-f801a76b-765b-4a2c-bf11-fc9425b86d11.png)
+_Product Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133008336-af4cd60d-5089-4445-9554-4c1245ab7a12.png)
 
+_Store Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133008184-f2c4756a-0501-45ea-b771-8f9cd3776519.png)
 
 _Order Endpoints_
-![image](https://user-images.githubusercontent.com/41996167/133003396-90bb392d-e324-48e1-be54-b32466111bf7.png)
-    
-_shoppingcarts_
-![image](https://user-images.githubusercontent.com/41996167/133003457-a00c80a6-cb24-4151-9450-55a34bc067de.png)
-    
-    
-    
+![image](https://user-images.githubusercontent.com/41996167/133008207-240b03ae-52f6-4201-9d7f-ad6ba671890b.png)
+
+_Shoppincarts Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133008255-3ee74fe5-e886-4ae9-bb5c-8450c560084c.png)
 
 ## <p align="center"> Equipe desenvolvedora 💖</p>
 
