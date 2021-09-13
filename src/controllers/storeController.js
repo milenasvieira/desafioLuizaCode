@@ -2,8 +2,12 @@ const Store = require('../models/Store');
 
 module.exports = {
     async list(req, res) {
-        const stores = await Store.findAll();
+        try {
+            const stores = await Store.findAll();
+            return res.status(200).json(stores);
 
-        return res.json(stores);
+        } catch (err) {
+            return res.status(400).json(err);
+        }
     },
 };

@@ -9,23 +9,18 @@ const OrderController = require('./src/controllers/OrderController');
 
 const routes = express.Router();
 
-routes.get('/products/list', ProductController.list); //funcionando
+routes.get('/products/list', ProductController.list); 
 
-routes.get('/stores/list', StoreController.list);   //funcionando
+routes.get('/stores/list', StoreController.list);   
 
-routes.post('/clients/create', ClientController.create); //funcionando
+routes.post('/clients/create', ClientController.create); 
+routes.get('/clients/list', ClientController.list); 
 
-routes.get('/clients/list', ClientController.list); //funcionando
+routes.post('/shoppingcarts/create', ShoppingCartController.create); 
+routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  
 
-routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionando
-
-routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
-
-routes.post('/order/create', OrderController.create); // funcionando
-
-routes.put('/order/update/status', OrderController.updateStatus); // funcionando
-
-routes.get('/clients/orders/list', OrderController.listOrderByClient);  // funcionado
-
+routes.post('/order/create', OrderController.create); 
+routes.put('/order/update/status', OrderController.updateStatus); 
+routes.get('/clients/orders/list', OrderController.listOrderByClient);
 
 module.exports = routes;

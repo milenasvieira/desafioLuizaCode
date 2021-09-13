@@ -34,10 +34,10 @@ module.exports = {
                 where: { shoppingCartId },
                 raw: true
             })
-         
+
 
             for (const iterator of cartProductsItens) {
-              
+
 
                 const orderProductItens = {
                     orderId: orderID,
@@ -45,11 +45,11 @@ module.exports = {
                     name: iterator.name,
                     value: iterator.value
                 }
-                
+
                 const orderProductCreate = await OrderProduct.create(orderProductItens)
-             
+
             }
-             
+
             await ShoppingCart.update({
                 isFinished: true    //carrinho de compras se tornou uma compra realizada
             }, {
@@ -80,7 +80,7 @@ module.exports = {
 
             if (storeId == null) throw ("Nenhuma loja selecionada para retirar esta compra.")
 
-            const orderStatusUpdate = await Order.update({ 
+            const orderStatusUpdate = await Order.update({
 
                 orderStatus: orderStatus  //2 - Compra retirada
             }, {
@@ -101,11 +101,16 @@ module.exports = {
 
         const { clientId } = req.body;
 
-        const clientOrders = await Order.findAll({
-            where: { clientId: clientId }
-        });
+        try {
+            const clientOrders = await Order.findAll({
+                where: { clientId: clientId }
+            });
 
-        return res.status(200).json(clientOrders);
+            return res.status(200).json(clientOrders);
+
+        } catch (err) {
+            return res.status(400).json(err);
+        }
     }
 
 }
