@@ -14,9 +14,9 @@ const client = {
                     // {
                     //     name: "id", // name of param
                     //     in: "Query", // location of param
-                    //     //schema: {
-                    //     //     $ref: "#/components/schemas/id", // id model
-                    //     // },
+                    //     schema: {
+                    //          $ref: "#/components/schemas/id", // id model
+                    //      },
                     //     required: false, // mandatory
                     //     //description: "Deleting a done todo", // param desc
                     // },
@@ -28,8 +28,9 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/Product", // id model
+                                   // $ref: "#/components/schemas/Products", 
                                 }
+                                
                             }
 
                         }
@@ -63,7 +64,7 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/Clients", // id model
+                                    //$ref: "#/components/schemas/Clients", // id model
                                 }
                             }
 
@@ -98,7 +99,7 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/Products", // id model
+                                    //$ref: "#/components/schemas/Stores", // id model
                                 }
                             }
 
@@ -150,8 +151,9 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/Clients", // id model
+                                   // $ref: "#/components/schemas/Clients", // id model
                                 }
+                                
                             }
 
                         }
@@ -217,7 +219,7 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/shoppingcarts", // id model
+                                   // $ref: "#/components/schemas/object", // id model
                                 }
                             }
 
@@ -287,7 +289,7 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/orderController", // id model
+                                   // $ref: "#/components/schemas/orderController", // id model
                                 }
                             }
 
@@ -354,7 +356,7 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/shoppingcarts", // id model
+                                    //$ref: "#/components/schemas/shoppingcarts", // id model
                                 }
                             }
 
@@ -422,7 +424,7 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
-                                    $ref: "#/components/schemas/shoppingcarts", // id model
+                                   // $ref: "#/components/schemas/shoppingcarts", // id model
                                 }
                             }
 
