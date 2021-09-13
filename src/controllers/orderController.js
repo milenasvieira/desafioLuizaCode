@@ -13,6 +13,12 @@ module.exports = {
 
             if (shoppingCartItens == null || shoppingCartItens == "") throw ("Não foi possível finalizar a compra. O carrinho não existe.")
 
+            const cartProductsIsEmpty = await CartProduct.findOne({
+                where: { shoppingCartId }
+            });
+
+            if (cartProductsIsEmpty == null || cartProductsIsEmpty == "") throw ("Não foi possível finalizar a compra. O carrinho está vazio.")
+
             const shoppingCartFindOneInOrder = await Order.findOne({
                 where: { shoppingCartId }
             });
@@ -73,12 +79,12 @@ module.exports = {
             const orderItens = await Order.findByPk(orderId)
 
 
-            if (orderItens == null) throw ("Compra não localizada.")
+            if (orderItens == null || orderItens == "") throw ("Compra não localizada.")
 
             const storeId = orderItens.storeId
 
 
-            if (storeId == null) throw ("Nenhuma loja selecionada para retirar esta compra.")
+            if (storeId == null || storeId == "") throw ("Nenhuma loja selecionada para retirar esta compra.")
 
             const orderStatusUpdate = await Order.update({
 
