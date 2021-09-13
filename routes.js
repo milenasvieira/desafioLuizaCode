@@ -16,34 +16,18 @@ routes.get('/products/list', ProductController.list);
 routes.get('/stores/list', StoreController.list);
 
 /*CLIENTS*/
-
+routes.get('/clients/list', ClientController.list);
 routes.post('/clients/create', ClientController.create);
 
-routes.post('/shoppingcarts/create', ShoppingCartController.create); 
-routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  
-
 /*SHOPPINGCARTS*/
-routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionando
-
-routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  //funcionando
+routes.post('/shoppingcarts/create', ShoppingCartController.create); 
+routes.delete('/shoppingcarts/delete', ShoppingCartController.delete); 
+routes.post('/shoppingcarts/create', ShoppingCartController.create);
+routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);
 
 /*ORDER*/
 routes.post('/order/create', OrderController.create);
-
-routes.put('/order/update/status', OrderController.updateStatus); //funcionando
-
-routes.get('/clients/orders/list', OrderController.listOrderByClient);  //funcionado
-
-
-
-
-// routes.get('/users/:user_id/addresses', AddressController.index);
-// routes.post('/users/:user_id/addresses', AddressController.store);
-
-// routes.get('/users/:user_id/techs', TechController.index);
-// routes.post('/users/:user_id/techs', TechController.store);
-// routes.delete('/users/:user_id/techs', TechController.delete);
-
-// routes.get('/report', ReportController.show);
+routes.put('/order/update/status', OrderController.updateStatus);
+routes.get('/clients/orders/list/:clientId', OrderController.listOrderByClient);
 
 module.exports = routes;
