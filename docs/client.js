@@ -28,6 +28,11 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
+                                    example:{
+                                       "id": "1",
+                                        "name": "Teste",
+                                        "value": 15
+                                    } 
                                    // $ref: "#/components/schemas/Products", 
                                 }
                                 
@@ -64,13 +69,19 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
+                                    example:{
+                                        "id": "1",
+                                        "name": "Teste 2"
+                                      },
                                     //$ref: "#/components/schemas/Clients", // id model
                                 }
                             }
 
                         }
 
-                    }
+                    },
+                    201: {},
+                    500: {},
                 },
             }
         },
@@ -99,6 +110,11 @@ const client = {
                             "application/json": {
                                 schema: {
                                     type: "object",
+                                    example:{
+                                        "id": "1",
+                                        "name": "MaLu - Teste",
+                                        "city": "BA"
+                                      },
                                     //$ref: "#/components/schemas/Stores", // id model
                                 }
                             }
@@ -167,7 +183,7 @@ const client = {
         
         "/order/create": {
             post: {
-                tags: ["Order"],
+                tags: ["Orders"],
                 summary: "Pedido",
                 description: "Essa rota será responsavel pelo pedido",
                 operationId: "addOrder",
@@ -237,7 +253,7 @@ const client = {
         },
         "/order/update/status": {
             put: {
-                tags: ["Order"],
+                tags: ["Orders"],
                 summary: "Pedido Status",
                 description: "Essa rota será responsavel pela atualizado do statusdo pedido",
                 operationId: "addOrder",
@@ -255,7 +271,7 @@ const client = {
                                     orderStatus: {
                                         type: "INTEGER(1)",
                                         description: "Status da Loja",
-                                        example: "1 Compra Realizada, 2 Compra Retirada"
+                                        example: "1"
                                     },
                                     // isFinished: {
                                     //     type: "BOOLEAN",
@@ -296,7 +312,7 @@ const client = {
                         }
 
                     },
-                    200: {description: "Compra Retirada",},
+                    200: {description: "Compra Realizada",},
                     400: {},
                 },
             }
@@ -304,7 +320,7 @@ const client = {
 
         "/shoppingcarts/create": {
             post: {
-                tags: ["shoppingcarts"],
+                tags: ["shoppingCarts"],
                 summary: "Cadastro de Carrinho",
                 description: "Essa rota será responsavel por cadastrar um produto no carrinho",
                 operationId: "addshoppingcarts",
@@ -372,7 +388,7 @@ const client = {
 
         "/shoppingcarts/delete": {
             delete: {
-                tags: ["shoppingcarts"],
+                tags: ["shoppingCarts"],
                 summary: "Remoção do produto do Carrinho",
                 description: "Essa rota será responsavel por cadastrar um produto no carrinho",
                 operationId: "removehoppingcarts",
@@ -434,7 +450,48 @@ const client = {
                 },
             }
         },
-        
+        "/clients/orders/list": {
+            get: {
+                tags: ["Orders"],
+                summary: "Lista de Pedidos",
+                operationId: "orderList",
+                description: " Listar de pedidos",
+                parameters: [
+                   // expected parameters
+                    {
+                        name: "clientId", // name of param
+                        in: "Query", // location of param
+                        schema: {
+                             $ref: "#/components/schemas/clientId", // id model
+                         },
+                        required: false, // mandatory
+                        //description: "Deleting a done todo", // param desc
+                    },
+                ],
+                responses: {
+                    200: {
+                        description: "",
+                        content: {
+                            "application/json": {
+                                schema: {
+                                    type: "object",
+                                    example:{
+                                       "id": "1",
+                                        "name": "Teste",
+                                        "value": 15
+                                    } 
+                                   // $ref: "#/components/schemas/Products", 
+                                }
+                                
+                            }
+
+                        }
+
+                    }
+                },
+            }
+        },
+                
     }
 }
 
