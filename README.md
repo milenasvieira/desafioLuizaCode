@@ -105,7 +105,7 @@ Siga as instruções para executar a API.
    ```
 9. Acesse o Swagger
    ```sh
-   localhost:8080/swagger-uui.html 
+   http://localhost:3000/docs 
    ```
 
 <!-- USAGE EXAMPLES -->
@@ -114,24 +114,19 @@ Siga as instruções para executar a API.
 **Você tem acesso aos seguintes endpoints:**
 
 _Client Endpoints_
-![swagger-controller-client]
+![image](https://user-images.githubusercontent.com/41996167/133008146-98f9b1ff-6518-400d-aa3a-6054c6904457.png)
 
 _Product Endpoints_
-![swagger-controller-product]
+![image](https://user-images.githubusercontent.com/41996167/133008165-82107c3e-dd22-4602-8032-2a8b8910d11f.png)
 
 _Store Endpoints_
-![swagger-controller-store]
+![image](https://user-images.githubusercontent.com/41996167/133008184-f2c4756a-0501-45ea-b771-8f9cd3776519.png)
 
-_Wishlist Endpoints_
-![swagger-controller-shoppingCart]
+_Order Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133008207-240b03ae-52f6-4201-9d7f-ad6ba671890b.png)
 
-EndPoints adicionais:
-
-_Client_
-![end-point-adicional-client]
-
-_Product_
-![end-point-adicional-product]
+_Shoppincarts Endpoints_
+![image](https://user-images.githubusercontent.com/41996167/133008255-3ee74fe5-e886-4ae9-bb5c-8450c560084c.png)
 
 
 ## <p align="center"> Equipe desenvolvedora 💖</p>
