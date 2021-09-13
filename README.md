@@ -4,6 +4,10 @@
 
 #### <h4 align="center"> Turma 2 - Grupo 6</h4>
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/78439783/133023491-24673bf3-0205-47ab-8392-60a64b1c3c08.png" width="150px" height="150px">
+</div>
+                                                                                                                
 <p align="center">
     <h3 align="center"> Desafio Final - Omni Channel </h3>
     <p align="center">
@@ -19,6 +23,10 @@ o produto em uma loja física e comprar pela internet ou vice-versa.
 Basicamente, o cliente Omni Channel é aquele que utiliza de todos os canais simultaneamente, cruzando compras em ambientes físicos e online.
 
 Essa API permite a aplicação do conhecimento que desenvolvemos durante o curso. Colocando em prática os conceitos e exercícios propostos, centralizando as principais características de uma Omni Channel.
+    
+## Regras do projeto
+    
+O cliente só pode comprar um produto de cada tipo. Após realizar a compra o status dessa compra é 'Realizada' e após a retirada do produto na loja física passa a ser 'Retirado'.
 
 ## Arquitetura do projeto:
 
@@ -34,9 +42,10 @@ Essa API permite a aplicação do conhecimento que desenvolvemos durante o curso
 
 
 **Exemplo de um database simples com seus relacionamentos (Diagrama):**
-    
-![image](https://user-images.githubusercontent.com/41996167/132949125-c49646d2-eba9-4117-aa43-d6ba6250b598.png)
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/78439783/133024081-068fc916-155c-460d-82f6-82227bc50780.png" width="650px" height="500px">
+</div>
 
 ## 🚀 Tecnologias Utilizadas: <br>
 
@@ -81,7 +90,6 @@ Siga as instruções para executar a API.
 2. Execute o projeto por qualquer IDE
 
    ```sh
-   npm init
    npm install
    ```
 3. Crie um banco de dados com o nome "luiza_code". Ou caso deseje alterar as credenciais de banco, acesse:
@@ -105,7 +113,7 @@ Siga as instruções para executar a API.
 9. Acesse o Swagger
    ```sh
 
-   http://localhost:3000/docs 
+   http://localhost:3000/docs/
    ```
 
 <!-- USAGE EXAMPLES -->
