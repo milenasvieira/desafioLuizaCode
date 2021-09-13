@@ -12,19 +12,15 @@ module.exports = {
                         where: { clientId, isFinished: false }
                   });
 
-                  if (shoppingCartFindOne == null) {
-
-                        console.log("clientId", clientId)
+                  if (shoppingCartFindOne == null || shoppingCartFindOne == "") {
 
                         const shoppingCartCreate = await ShoppingCart.create({ clientId, isFinished: false });
-
-                        console.log("shoppingCartCreate", shoppingCartCreate)
 
                         const shoppingCartID = shoppingCartCreate.id
 
                         await cartProdutsCreate(shoppingCartID)
 
-                  } else if (shoppingCartFindOne !== null) {
+                  } else if (shoppingCartFindOne !== null || shoppingCartFindOne == "") {
 
                         const shoppingCartID = shoppingCartFindOne.id
 
@@ -47,7 +43,7 @@ module.exports = {
                                     where: { shoppingCartID, productId }
                               })
 
-                              if (cartProductFindOne !== null) throw ("Não é possível adicionar um produto do mesmo tipo no carrinho")
+                              if (cartProductFindOne !== null || cartProductFindOne == "") throw ("Não é possível adicionar um produto do mesmo tipo no carrinho")
 
                               const cartProductsCreate = await CartProduct.create(cartProducsItens)
 
@@ -71,7 +67,7 @@ module.exports = {
                   where: { clientId, isFinished: false }
             });
 
-            if (shoppingCartFindOne == null) throw ("Este carrinho não existe.")
+            if (shoppingCartFindOne == null || shoppingCartFindOne == "") throw ("Este carrinho não existe.")
 
             const shoppingCartId = shoppingCartFindOne.id
 
@@ -79,14 +75,14 @@ module.exports = {
                   where: { shoppingCartId: shoppingCartFindOne.id }
             })
 
-            if (shoppingCartProducts == null) throw ("Este carrinho está vazio.")
+            if (shoppingCartProducts == null || shoppingCartProducts == "") throw ("Este carrinho está vazio.")
 
 
             const cartProductItem = await CartProduct.findOne({
                   where: { productId: productId }
             })
 
-            if (cartProductItem == null) throw ("Este produto não existe nesse carrinho.")
+            if (cartProductItem == null || cartProductItem == "") throw ("Este produto não existe nesse carrinho.")
 
 
             await CartProduct.destroy({
