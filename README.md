@@ -114,10 +114,10 @@ Siga as instruções para executar a API.
 **Você tem acesso aos seguintes endpoints:**
 
 _Client Endpoints_
-![image](https://user-images.githubusercontent.com/41996167/133008146-98f9b1ff-6518-400d-aa3a-6054c6904457.png)
+![image](https://user-images.githubusercontent.com/41996167/133008323-e88dcffe-21d5-42c1-a030-6939212dffd0.png)
 
 _Product Endpoints_
-![image](https://user-images.githubusercontent.com/41996167/133008165-82107c3e-dd22-4602-8032-2a8b8910d11f.png)
+![image](https://user-images.githubusercontent.com/41996167/133008336-af4cd60d-5089-4445-9554-4c1245ab7a12.png)
 
 _Store Endpoints_
 ![image](https://user-images.githubusercontent.com/41996167/133008184-f2c4756a-0501-45ea-b771-8f9cd3776519.png)
