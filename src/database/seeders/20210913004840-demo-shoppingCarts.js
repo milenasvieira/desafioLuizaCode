@@ -4,7 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('shoppingCarts', [{
       clientId: 1,
-      isFinished: false,
+      isFinished: true,
     }]);
   },
 

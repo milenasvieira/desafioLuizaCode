@@ -21,6 +21,6 @@ routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);
 
 routes.post('/order/create', OrderController.create); 
 routes.put('/order/update/status', OrderController.updateStatus); 
-routes.get('/clients/orders/list', OrderController.listOrderByClient);
+routes.get('/clients/orders/list/:clientId', OrderController.listOrderByClient);
 
 module.exports = routes;

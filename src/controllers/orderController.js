@@ -99,7 +99,7 @@ module.exports = {
 
     async listOrderByClient(req, res) {
 
-        const { clientId } = req.body;
+        const { clientId } = req.params;
 
         try {
             const clientOrders = await Order.findAll({
