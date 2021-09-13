@@ -1,6 +1,6 @@
 
 
-const client = {
+const swagger = {
     paths: {
 
         "/products/list": {
@@ -499,5 +499,5 @@ const client = {
     }
 }
 
-module.exports = client;
+module.exports = swagger;
 
