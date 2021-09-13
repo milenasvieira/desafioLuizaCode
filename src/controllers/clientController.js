@@ -8,24 +8,25 @@ module.exports = {
             const { name } = req.body;
 
             const clients = await Client.create({ name });
-    
+
             return res.status(201).json(clients);
 
         } catch (err) {
-            
-            return res.status(500).json(err);
+
+            return res.status(400).json(err);
         }
     },
 
     async list(req, res) {
-        try{
+
+        try {
             const clients = await Client.findAll();
 
             return res.status(200).json(clients);
 
-        } catch  {
+        } catch (err) {
 
-            return res.status(500).json(err);
+            return res.status(400).json(err);
         }
 
     },

@@ -75,6 +75,7 @@ Siga as instruções para executar a API.
      or
    git clone SSH git@github.com:milenasvieira/desafioLuizaCode.git
    ```
+  
 2. Excute o projeto por qualquer IDE;
    ```sh
    Visual Studio Code
@@ -105,6 +106,7 @@ Siga as instruções para executar a API.
    ```
 9. Acesse o Swagger
    ```sh
+
    http://localhost:3000/docs 
    ```
 
@@ -127,7 +129,6 @@ _Order Endpoints_
 
 _Shoppincarts Endpoints_
 ![image](https://user-images.githubusercontent.com/41996167/133008255-3ee74fe5-e886-4ae9-bb5c-8450c560084c.png)
-
 
 ## <p align="center"> Equipe desenvolvedora 💖</p>
 

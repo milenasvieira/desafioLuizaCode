@@ -19,7 +19,8 @@ routes.get('/stores/list', StoreController.list);
 
 routes.post('/clients/create', ClientController.create);
 
-routes.get('/clients/list', ClientController.list); //funcionando
+routes.post('/shoppingcarts/create', ShoppingCartController.create); 
+routes.delete('/shoppingcarts/delete', ShoppingCartController.delete);  
 
 /*SHOPPINGCARTS*/
 routes.post('/shoppingcarts/create', ShoppingCartController.create); //funcionando

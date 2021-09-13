@@ -1,0 +1,17 @@
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert('cartProducts', [{
+      shoppingCartId: 1,
+      productId: 2,
+      name: "Camiseta",
+      value: 50.00,
+    }]);
+ 
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('cartProducts', null, {});
+  }
+};
